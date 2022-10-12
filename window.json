@@ -1,0 +1,134 @@
+{
+    "name"     : "G10 Shader Compiler",
+    "width"    : 736,
+    "height"   : 260,
+    "elements" : [
+        {
+            "type"     : "IMAGE",
+            "name"     : "logo",
+            "x"        : 16,
+            "y"        : 12,
+            "width"    : 24,
+            "height"   : 24,
+            "path"     : "icon.png"
+        },
+        {
+            "type"     : "LABEL",
+            "name"     : "G10 shader constructor title label",
+            "text"     : "G10 Shader Compiler", 
+            "x"        : 48,
+            "y"        : 16,
+            "size"     : 2
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "shader path label",
+            "text"      : "Path",
+            "x"         : 16,
+            "y"         : 44
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "shader path",
+            "x"           : 16,
+            "y"           : 60,
+            "width"       : 80,
+            "height"      : 14,
+            "text"        : "",
+            "placeholder" : "",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "vertex shader path label",
+            "text"      : "Vertex",
+            "x"         : 16,
+            "y"         : 78
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "vertex shader path",
+            "x"           : 16,
+            "y"           : 92,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "vertex shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "tessellation control shader path label",
+            "text"      : "Tessellation control",
+            "x"         : 16,
+            "y"         : 110
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "tessellation control shader path",
+            "x"           : 16,
+            "y"           : 124,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "tessellation control shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "tessellation evaluation shader path label",
+            "text"      : "Tessellation evaluation",
+            "x"         : 16,
+            "y"         : 142
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "tessellation evaluation shader path",
+            "x"           : 16,
+            "y"           : 156,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "tessellation evaluation shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "geometry shader path label",
+            "text"      : "Geometry",
+            "x"         : 16,
+            "y"         : 174
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "geometry shader path",
+            "x"           : 16,
+            "y"           : 188,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "geometry shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "fragment shader path label",
+            "text"      : "Fragment",
+            "x"         : 16,
+            "y"         : 206
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "fragment shader path",
+            "x"           : 16,
+            "y"           : 220,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "fragment shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"        : "BUTTON",
+            "name"        : "shader compile button",
+            "label"       : "Compile",
+            "x"           : 664,
+            "y"           : 240
+        }
+    ]
+}
