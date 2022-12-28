@@ -14,7 +14,8 @@ void compile_shaders ( UIButton_t *button, ui_mouse_state_t state )
                   *tessellation_control_file               = 0,
                   *tessellation_evaluation_file            = 0,
                   *geometry_file                           = 0,
-                  *fragment_file                           = 0;
+                  *fragment_file                           = 0,
+                  *compute_file                            = 0;
 
     char          *vulkan_sdk_path                         = getenv("VK_SDK_PATH"),    // Path to the Vulkan SDK
                   *path                                    = 0,
@@ -27,12 +28,15 @@ void compile_shaders ( UIButton_t *button, ui_mouse_state_t state )
                   *geometry_file_name                      = 0,
                   *geometry_compile_command                = 0,
                   *fragment_file_name                      = 0,
-                  *fragment_compile_command                = 0;
-
+                  *fragment_compile_command                = 0,
+                  *compute_file_name                       = 0,
+                  *compute_compile_command                 = 0;
+    UIElement_t   *title_label                             = find_element(instance->active_window, "shader compiler error label");
     char          *output_path                             = calloc(1024, sizeof(u8));
     size_t         fail                                    = 0;
 
     FILE          *output = 0;
+    title_label->element.label->y = 1000;
 
     // Get each text input 
     {
@@ -73,13 +77,31 @@ void compile_shaders ( UIButton_t *button, ui_mouse_state_t state )
         fragment_file                     = element->element.text_input;
         if (strlen(fragment_file->text))
             fragment_file_name            = fragment_file->text;
+
+        // Get the compute shader file name
+        element                           = find_element(instance->active_window, "compute shader path");
+        compute_file                      = element->element.text_input;
+        if (strlen(compute_file->text))
+            compute_file_name             = compute_file->text;
     }
 
     // Get the path to the shader
     path = path_text_input->text;
 
-    sprintf(output_path, "%s\\shader compiler output.txt", path);
-    output = fopen(output_path, "w");
+    // Error checking
+    {
+        if ( vulkan_sdk_path == (void *) 0 )
+            goto no_vulkan_sdk;
+
+        if ( ( vertex_file_name                  || 
+               tessellation_control_file_name    ||
+               tessellation_evaluation_file_name || 
+               geometry_file_name                ||
+               fragment_file_name                ||
+               compute_file_name                 
+             ) == 0 )
+            goto no_shaders_specified;
+    }
 
     // Generate glslc commands
     {
@@ -133,7 +155,16 @@ void compile_shaders ( UIButton_t *button, ui_mouse_state_t state )
             // Generate the command
             sprintf(fragment_compile_command, "%s\\Bin\\glslc.exe -fshader-stage=frag \"%s/%s\" -o \"%s/frag.spv\"", vulkan_sdk_path, path, fragment_file_name, path);
         }
+        
+        // Generate a command to compile the compute shader
+        if (compute_file_name) {
 
+            // Allocate memory for the command
+            compute_compile_command = calloc(1024, sizeof(u8));
+
+            // Generate the command
+            sprintf(compute_compile_command, "%s\\Bin\\glslc.exe -fshader-stage=comp \"%s/%s\" -o \"%s/comp.spv\"", vulkan_sdk_path, path, compute_file_name, path);
+        }
     }
 
     // Compile the shaders
@@ -200,19 +231,31 @@ void compile_shaders ( UIButton_t *button, ui_mouse_state_t state )
         {
 
             // Run the glsl compiler
-            if(system(fragment_compile_command))
+            if ( system(fragment_compile_command) )
                 goto failed_to_compile_fragment;
 
             // Free the allocated memory
             free(fragment_compile_command);
         }
+
+        compile_comp:
+
+        // Compile the compute shader
+        if (compute_compile_command)
+        {
+
+            // Run the glsl compiler
+            if ( system(compute_compile_command) )
+                goto failed_to_compile_compute;
+
+            // Free the allocated memory
+            free(compute_compile_command);
+        }
     }
-
-    if(fail == 0)
-        fprintf(output, "Compiled all shaders successfully\n");
-
+    
     close_file:
-    fclose(output);
+    if(fail)
+        title_label->element.label->y = 342;
 
     return;
 
@@ -221,28 +264,44 @@ void compile_shaders ( UIButton_t *button, ui_mouse_state_t state )
 
         // User errors
         {
+
             failed_to_compile_vertex:
-                fprintf(output, "Failed to compile vertex shader\n");
+                title_label->element.label->text = "ERROR: Failed to compile vertex shader!";
                 fail = 1;
                 goto compile_tesc;
 
             failed_to_compile_tessellation_control:
-                fprintf(output, "Failed to compile tessellation control shader\n");
+                title_label->element.label->text = "ERROR: Failed to compile tessellation control shader!";
                 fail = 1;
                 goto compile_tese;
 
             failed_to_compile_tessellation_evaluation:
-                fprintf(output, "Failed to compile tessellation evaluation shader\n");
+                title_label->element.label->text = "ERROR: Failed to compile tessellation evaluation shader!";
                 fail = 1;
                 goto compile_geom;
 
             failed_to_compile_geometry:
-                fprintf(output, "Failed to compile geometry shader\n");
+                title_label->element.label->text = "ERROR: Failed to compile geometry shader!";
                 fail = 1;
                 goto compile_frag;
 
             failed_to_compile_fragment:
-                fprintf(output, "Failed to compile fragment shader\n");
+                title_label->element.label->text = "ERROR: Failed to compile fragment shader!";
+                fail = 1;
+                goto compile_comp;
+            
+            failed_to_compile_compute:
+                title_label->element.label->text = "ERROR: Failed to compile compute shader!";
+                fail = 1;
+                goto close_file;
+
+            no_vulkan_sdk:
+                title_label->element.label->text = "ERROR: Please install the Vulkan SDK OR create a VK_SDK_PATH environment variable!";
+                fail = 1;
+                goto close_file;
+
+            no_shaders_specified:
+                title_label->element.label->text = "ERROR: Specify at least one shader path in the text inputs above!";
                 fail = 1;
                 goto close_file;
         }
@@ -277,9 +336,15 @@ int main( int argc, const char *argv[] )
     // Add a callback to the compile button
     add_click_callback_element(compile_button, compile_shaders);
 
+
+
     // Copy the G10 path
     {
         shader_path = find_element(window, "shader path");
+
+        // Pre set the active textbox
+        instance->active_window->last = shader_path;
+
         shader_path = ((UIElement_t*)shader_path)->element.text_input;
         
         shader_path->width = 8 * ( sprintf(shader_path->text, "%sG10\\shaders\\", (g10_directory) ? g10_directory : "") + 1);

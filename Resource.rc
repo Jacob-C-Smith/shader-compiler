@@ -62,7 +62,7 @@ IDI_ICON1               ICON                    "G10 Shader Compiler.ico"
 
 VS_VERSION_INFO VERSIONINFO
  FILEVERSION 0,0,0,0
- PRODUCTVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,2
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -79,12 +79,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "G10"
             VALUE "FileDescription", "G10 Vulkan shader compiler"
-            VALUE "FileVersion", "0.0.0.0"
+            VALUE "FileVersion", "0.0.0.1"
             VALUE "InternalName", "G10 Shader Compiler.exe"
             VALUE "LegalCopyright", "Copyright (C) 2022"
             VALUE "OriginalFilename", "G10 Shader Compiler.exe"
             VALUE "ProductName", "G10 Shader Compiler"
-            VALUE "ProductVersion", "1.0"
+            VALUE "ProductVersion", "2.0"
         END
     END
     BLOCK "VarFileInfo"

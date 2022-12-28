@@ -1,7 +1,7 @@
 {
     "name"     : "G10 Shader Compiler",
-    "width"    : 736,
-    "height"   : 260,
+    "width"    : 740,
+    "height"   : 360,
     "elements" : [
         {
             "type"     : "IMAGE",
@@ -23,7 +23,7 @@
         {
             "type"      : "LABEL",
             "name"      : "shader path label",
-            "text"      : "Path",
+            "text"      : "Directory path",
             "x"         : 16,
             "y"         : 44
         },
@@ -39,17 +39,34 @@
             "length"      : 255
         },
         {
+            "type"     : "IMAGE",
+            "name"     : "graphics",
+            "x"        : 16,
+            "y"        : 80,
+            "width"    : 24,
+            "height"   : 24,
+            "path"     : "graphics.png"
+        },
+        {
+            "type"     : "LABEL",
+            "name"     : "graphics constructor title label",
+            "text"     : "Graphics Pipeline", 
+            "x"        : 48,
+            "y"        : 84,
+            "size"     : 2
+        },
+        {
             "type"      : "LABEL",
             "name"      : "vertex shader path label",
             "text"      : "Vertex",
             "x"         : 16,
-            "y"         : 78
+            "y"         : 110
         },
         {
             "type"        : "TEXT INPUT",
             "name"        : "vertex shader path",
             "x"           : 16,
-            "y"           : 92,
+            "y"           : 124,
             "width"       : 80,
             "height"      : 14,
             "placeholder" : "vertex shader.glsl",
@@ -60,13 +77,13 @@
             "name"      : "tessellation control shader path label",
             "text"      : "Tessellation control",
             "x"         : 16,
-            "y"         : 110
+            "y"         : 142
         },
         {
             "type"        : "TEXT INPUT",
             "name"        : "tessellation control shader path",
             "x"           : 16,
-            "y"           : 124,
+            "y"           : 156,
             "width"       : 80,
             "height"      : 14,
             "placeholder" : "tessellation control shader.glsl",
@@ -77,13 +94,13 @@
             "name"      : "tessellation evaluation shader path label",
             "text"      : "Tessellation evaluation",
             "x"         : 16,
-            "y"         : 142
+            "y"         : 174
         },
         {
             "type"        : "TEXT INPUT",
             "name"        : "tessellation evaluation shader path",
             "x"           : 16,
-            "y"           : 156,
+            "y"           : 188,
             "width"       : 80,
             "height"      : 14,
             "placeholder" : "tessellation evaluation shader.glsl",
@@ -94,13 +111,13 @@
             "name"      : "geometry shader path label",
             "text"      : "Geometry",
             "x"         : 16,
-            "y"         : 174
+            "y"         : 206
         },
         {
             "type"        : "TEXT INPUT",
             "name"        : "geometry shader path",
             "x"           : 16,
-            "y"           : 188,
+            "y"           : 220,
             "width"       : 80,
             "height"      : 14,
             "placeholder" : "geometry shader.glsl",
@@ -111,24 +128,66 @@
             "name"      : "fragment shader path label",
             "text"      : "Fragment",
             "x"         : 16,
-            "y"         : 206
+            "y"         : 238
         },
         {
             "type"        : "TEXT INPUT",
             "name"        : "fragment shader path",
             "x"           : 16,
-            "y"           : 220,
+            "y"           : 252,
             "width"       : 80,
             "height"      : 14,
             "placeholder" : "fragment shader.glsl",
             "length"      : 255
         },
         {
+            "type"     : "IMAGE",
+            "name"     : "compute",
+            "x"        : 16,
+            "y"        : 272,
+            "width"    : 24,
+            "height"   : 24,
+            "path"     : "compute.png"
+        },
+        {
+            "type"     : "LABEL",
+            "name"     : "compute constructor title label",
+            "text"     : "Compute Pipeline", 
+            "x"        : 48,
+            "y"        : 276,
+            "size"     : 2
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "compute shader path label",
+            "text"      : "Compute",
+            "x"         : 16,
+            "y"         : 304
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "compute shader path",
+            "x"           : 16,
+            "y"           : 318,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "compute shader.glsl",
+            "length"      : 255
+        },
+        {
             "type"        : "BUTTON",
             "name"        : "shader compile button",
             "label"       : "Compile",
-            "x"           : 664,
-            "y"           : 240
+            "x"           : 668,
+            "y"           : 340
+        },
+        {
+            "type"     : "LABEL",
+            "name"     : "shader compiler error label",
+            "text"     : "ERROR: Please install the Vulkan SDK OR create a VK_SDK_PATH environment variable!", 
+            "x"        : 8,
+            "y"        : 1000,
+            "size"     : 1
         }
     ]
 }
