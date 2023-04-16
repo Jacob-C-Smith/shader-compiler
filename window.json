@@ -1,7 +1,8 @@
 {
     "name"     : "G10 Shader Compiler",
     "width"    : 740,
-    "height"   : 360,
+    "height"   : 680,
+    "title"    : "Shader Compiler",
     "elements" : [
         {
             "type"     : "IMAGE",
@@ -25,7 +26,8 @@
             "name"      : "shader path label",
             "text"      : "Directory path",
             "x"         : 16,
-            "y"         : 44
+            "y"         : 44,
+            "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
@@ -60,7 +62,8 @@
             "name"      : "vertex shader path label",
             "text"      : "Vertex",
             "x"         : 16,
-            "y"         : 110
+            "y"         : 110,
+            "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
@@ -69,7 +72,7 @@
             "y"           : 124,
             "width"       : 80,
             "height"      : 14,
-            "placeholder" : "vertex shader.glsl",
+            "placeholder" : "vertex-shader.glsl",
             "length"      : 255
         },
         {
@@ -77,7 +80,8 @@
             "name"      : "tessellation control shader path label",
             "text"      : "Tessellation control",
             "x"         : 16,
-            "y"         : 142
+            "y"         : 142,
+            "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
@@ -86,7 +90,7 @@
             "y"           : 156,
             "width"       : 80,
             "height"      : 14,
-            "placeholder" : "tessellation control shader.glsl",
+            "placeholder" : "tessellation-control-shader.glsl",
             "length"      : 255
         },
         {
@@ -94,7 +98,8 @@
             "name"      : "tessellation evaluation shader path label",
             "text"      : "Tessellation evaluation",
             "x"         : 16,
-            "y"         : 174
+            "y"         : 174,
+            "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
@@ -103,7 +108,7 @@
             "y"           : 188,
             "width"       : 80,
             "height"      : 14,
-            "placeholder" : "tessellation evaluation shader.glsl",
+            "placeholder" : "tessellation-evaluation-shader.glsl",
             "length"      : 255
         },
         {
@@ -111,7 +116,8 @@
             "name"      : "geometry shader path label",
             "text"      : "Geometry",
             "x"         : 16,
-            "y"         : 206
+            "y"         : 206,
+            "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
@@ -120,7 +126,7 @@
             "y"           : 220,
             "width"       : 80,
             "height"      : 14,
-            "placeholder" : "geometry shader.glsl",
+            "placeholder" : "geometry-shader.glsl",
             "length"      : 255
         },
         {
@@ -128,7 +134,8 @@
             "name"      : "fragment shader path label",
             "text"      : "Fragment",
             "x"         : 16,
-            "y"         : 238
+            "y"         : 238,
+            "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
@@ -137,7 +144,7 @@
             "y"           : 252,
             "width"       : 80,
             "height"      : 14,
-            "placeholder" : "fragment shader.glsl",
+            "placeholder" : "fragment-shader.glsl",
             "length"      : 255
         },
         {
@@ -162,7 +169,8 @@
             "name"      : "compute shader path label",
             "text"      : "Compute",
             "x"         : 16,
-            "y"         : 304
+            "y"         : 304,
+            "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
@@ -171,7 +179,185 @@
             "y"           : 318,
             "width"       : 80,
             "height"      : 14,
-            "placeholder" : "compute shader.glsl",
+            "placeholder" : "compute-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"     : "IMAGE",
+            "name"     : "ray",
+            "x"        : 16,
+            "y"        : 338,
+            "width"    : 24,
+            "height"   : 24,
+            "path"     : "ray.png"
+        },
+        {
+            "type"     : "LABEL",
+            "name"     : "ray constructor title label",
+            "text"     : "Ray Tracing Pipeline", 
+            "x"        : 48,
+            "y"        : 342,
+            "size"     : 2
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "ray generation shader path label",
+            "text"      : "Generation",
+            "x"         : 16,
+            "y"         : 370,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "ray generation shader path",
+            "x"           : 16,
+            "y"           : 384,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "generation-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "ray intersection shader path label",
+            "text"      : "Intersection",
+            "x"         : 16,
+            "y"         : 402,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "ray intersection path",
+            "x"           : 16,
+            "y"           : 416,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "intersection-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "ray any hit shader path label",
+            "text"      : "Any hit",
+            "x"         : 16,
+            "y"         : 436,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "ray any hit path",
+            "x"           : 16,
+            "y"           : 448,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "any-hit-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "ray closest hit shader path label",
+            "text"      : "Closest hit",
+            "x"         : 16,
+            "y"         : 468,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "ray closest hit path",
+            "x"           : 16,
+            "y"           : 480,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "closest-hit-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "ray miss shader path label",
+            "text"      : "Miss",
+            "x"         : 16,
+            "y"         : 500,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "ray miss path",
+            "x"           : 16,
+            "y"           : 512,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "miss-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "ray callable shader path label",
+            "text"      : "Callable",
+            "x"         : 16,
+            "y"         : 532,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "ray callable path",
+            "x"           : 16,
+            "y"           : 544,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "callable-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"     : "IMAGE",
+            "name"     : "task",
+            "x"        : 16,
+            "y"        : 564,
+            "width"    : 24,
+            "height"   : 24,
+            "path"     : "task.png"
+        },
+        {
+            "type"     : "LABEL",
+            "name"     : "mesh constructor title label",
+            "text"     : "Mesh Pipeline", 
+            "x"        : 48,
+            "y"        : 568,
+            "size"     : 2
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "task shader path label",
+            "text"      : "Task",
+            "x"         : 16,
+            "y"         : 596,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "task shader path",
+            "x"           : 16,
+            "y"           : 610,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "task-shader.glsl",
+            "length"      : 255
+        },
+        {
+            "type"      : "LABEL",
+            "name"      : "mesh shader path label",
+            "text"      : "Mesh",
+            "x"         : 16,
+            "y"         : 628,
+            "size"      : 1
+        },
+        {
+            "type"        : "TEXT INPUT",
+            "name"        : "mesh shader path",
+            "x"           : 16,
+            "y"           : 642,
+            "width"       : 80,
+            "height"      : 14,
+            "placeholder" : "mesh-shader.glsl",
             "length"      : 255
         },
         {
@@ -179,7 +365,7 @@
             "name"        : "shader compile button",
             "label"       : "Compile",
             "x"           : 668,
-            "y"           : 340
+            "y"           : 657
         },
         {
             "type"     : "LABEL",
