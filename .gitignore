@@ -56,10 +56,11 @@ x64/
 extern/
 build/
 Debug/
-
-cmake_install.cmake
+.DS_Store
+CMakeFiles
 CMakeCache.txt
-shader-compiler
+cmake_install.cmake
 Makefile
-CMakeFiles/
-.vscode/
+Resource.rc
+shader-compiler
+ui_example
