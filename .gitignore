@@ -52,9 +52,11 @@ Mkfile.old
 dkms.conf
 
 .vs/
-x64/
-extern/
 build/
+
+x64/
+extern/SDL2-*
+extern/SDL2_image-*
 Debug/
 .DS_Store
 CMakeFiles
@@ -64,3 +66,4 @@ Makefile
 Resource.rc
 shader-compiler
 ui_example
+*.ini

@@ -18,7 +18,7 @@ find_library(ui NAMES ui HINTS ${PROJECT_SOURCE_DIR}/ui/build/Debug/*)
 include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
 
 # Add source to this project's executable.
-add_executable (shader-compiler "main.c") 
+add_executable (shader-compiler "main.c" "Resource.rc") 
 
 target_link_libraries(shader-compiler PUBLIC ui json array dict ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 target_link_libraries(shader-compiler PRIVATE ui SDL2_image::SDL2_image)

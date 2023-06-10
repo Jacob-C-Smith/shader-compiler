@@ -24,7 +24,7 @@
         {
             "type"      : "LABEL",
             "name"      : "shader path label",
-            "text"      : "Directory path",
+            "text"      : "path",
             "x"         : 16,
             "y"         : 44,
             "size"      : 1
@@ -134,14 +134,14 @@
             "name"      : "fragment shader path label",
             "text"      : "Fragment",
             "x"         : 16,
-            "y"         : 238,
+            "y"         : 302,
             "size"      : 1
         },
         {
             "type"        : "TEXT INPUT",
             "name"        : "fragment shader path",
             "x"           : 16,
-            "y"           : 252,
+            "y"           : 316,
             "width"       : 80,
             "height"      : 14,
             "placeholder" : "fragment-shader.glsl",
@@ -151,7 +151,7 @@
             "type"     : "IMAGE",
             "name"     : "compute",
             "x"        : 16,
-            "y"        : 272,
+            "y"        : 336,
             "width"    : 24,
             "height"   : 24,
             "path"     : "compute.png"
@@ -306,23 +306,6 @@
             "height"      : 14,
             "placeholder" : "callable-shader.glsl",
             "length"      : 255
-        },
-        {
-            "type"     : "IMAGE",
-            "name"     : "task",
-            "x"        : 16,
-            "y"        : 564,
-            "width"    : 24,
-            "height"   : 24,
-            "path"     : "task.png"
-        },
-        {
-            "type"     : "LABEL",
-            "name"     : "mesh constructor title label",
-            "text"     : "Mesh Pipeline", 
-            "x"        : 48,
-            "y"        : 568,
-            "size"     : 2
         },
         {
             "type"      : "LABEL",
