@@ -10,3 +10,6 @@
 [submodule "extern/json"]
 	path = extern/json
 	url = https://github.com/Jacob-C-Smith/json
+[submodule "extern/ui"]
+	path = extern/ui
+	url = https://github.com/Jacob-C-Smith/ui

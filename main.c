@@ -550,9 +550,9 @@ int drop_operation ( UIWindow_t *p_window, char *path )
             resize_window(p_window);
             p_status->label->c = 0x000000F0;
             if ( ff )
-                sprintf(p_status->label->text, "\210 Failed to load shader from path!");
+                sprintf(p_status->label->text, "! Failed to load shader from path!");
             else if ( pf )
-                sprintf(p_status->label->text, "\210 Failed to parse file as JSON!");
+                sprintf(p_status->label->text, "! Failed to parse file as JSON!");
             
             p_status->label->y = 634;
 
@@ -655,7 +655,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_status->label->c = 0x000000FF;
                 p_vspl->label->text[0] = '!';
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto vert_done;
             }
@@ -684,7 +684,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_tcspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto tesc_done;
             }
@@ -713,7 +713,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_tespl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto tese_done;
             }
@@ -742,7 +742,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_gspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto geom_done;
             }
@@ -771,7 +771,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_fspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto frag_done;
             }
@@ -801,7 +801,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_tspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto task_done;
             }
@@ -830,7 +830,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_mspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto mesh_done;
             }
@@ -859,7 +859,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_fspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto frag_done;
             }
@@ -889,7 +889,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_cspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader!");
+                sprintf(p_status->label->text, "! Failed to compile shader!");
                 ret=0;
                 goto compute_done;
             }
@@ -921,7 +921,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_rgspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto ray_gen_done;
             }
@@ -950,7 +950,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_rahspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto ray_anyhit_done;
             }
@@ -979,7 +979,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_rchspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto ray_closest_hit_done;
             }
@@ -1008,7 +1008,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_rmspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto ray_miss_done;
             }
@@ -1037,7 +1037,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_rispl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto ray_intersect_done;
             }
@@ -1065,7 +1065,7 @@ int compile_shaders ( UIWindow_t *p_window )
             {
                 p_rcspl->label->text[0] = '!';
                 p_status->label->c = 0x000000FF;
-                sprintf(p_status->label->text, "\210 Failed to compile shader(s)!");
+                sprintf(p_status->label->text, "! Failed to compile shader(s)!");
                 ret=0;
                 goto ray_callable_done;
             }
@@ -1101,7 +1101,7 @@ void compile_shaders_button (UIElement_t *p_element, ui_mouse_state_t mouse_stat
     {
         UIElement_t *p_status = find_element(p_window, "status label");
         p_status->label->c = 0x0000C000;
-        sprintf(p_status->label->text, "\210 Failed to load shader from path!");
+        sprintf(p_status->label->text, "! Failed to load shader from path!");
     }
 }
 
