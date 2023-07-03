@@ -63,7 +63,6 @@ CMakeFiles
 CMakeCache.txt
 cmake_install.cmake
 Makefile
-Resource.rc
 shader-compiler
 ui_example
 *.ini
