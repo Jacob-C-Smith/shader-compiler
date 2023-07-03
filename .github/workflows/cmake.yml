@@ -1,4 +1,4 @@
-name: shader-compiler
+name: shader compiler
 
 on:
   push:
