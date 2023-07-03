@@ -15,37 +15,38 @@ ELSEIF(APPLE)
 ENDIF(WIN32)
 
 if ( NOT ("${HAS_JSON}"))
-	message("[shader compiler] adding json project")
+    message("[shader compiler] adding json project")
     add_subdirectory(${CMAKE_SOURCE_DIR}/extern/json ${CMAKE_SOURCE_DIR}/build/json)
 endif()
 
 if ( NOT ("${HAS_ARRAY}"))
-	message("[shader compiler] adding array project")
+    message("[shader compiler] adding array project")
     add_subdirectory(${CMAKE_SOURCE_DIR}/extern/array ${CMAKE_SOURCE_DIR}/build/array)
 endif()
 
 if ( NOT ("${HAS_DICT}"))
-	message("[shader compiler] adding dict project")
+    message("[shader compiler] adding dict project")
     add_subdirectory(${CMAKE_SOURCE_DIR}/extern/dict ${CMAKE_SOURCE_DIR}/build/dict)
 endif()
 
 if ( NOT ("${HAS_UI}"))
-	message("[shader compiler] adding ui project")
+    message("[shader compiler] adding ui project")
     add_subdirectory(${CMAKE_SOURCE_DIR}/extern/ui ${CMAKE_SOURCE_DIR}/build/ui)
 endif()
 
 find_package(SDL2 REQUIRED CONFIG REQUIRED COMPONENTS SDL2)
 find_package(SDL2 REQUIRED CONFIG COMPONENTS SDL2main)
 
-# G10 executable
+include_directories(${SDL2_INCLUDE_DIRS})
+
+# Shader compiler executable
 add_executable (shader-compiler "main.c" "Resource.rc") 
 add_dependencies(shader-compiler json array dict ui)
 target_include_directories(shader-compiler PUBLIC include ${CMAKE_SOURCE_DIR}/extern/json/include/ ${CMAKE_SOURCE_DIR}/extern/array/include/ ${CMAKE_SOURCE_DIR}/extern/dict/include/ ${CMAKE_SOURCE_DIR}/extern/ui/include/ ) 
-target_link_libraries(shader-compiler PUBLIC json array dict ui ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} PRIVATE SDL2_image::SDL2_image )
 IF(WIN32)
-    target_link_libraries(ai-tool PUBLIC json array dict ui PRIVATE SDL2_image::SDL2_image ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+    target_link_libraries(shader-compiler PUBLIC json array dict ui PRIVATE SDL2_image::SDL2_image ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 ELSEIF(LINUX)
-    target_link_libraries(ai-tool PUBLIC json array dict ui ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+    target_link_libraries(shader-compiler PUBLIC json array dict ui ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 ELSEIF(APPLE)
 
 ENDIF(WIN32)
